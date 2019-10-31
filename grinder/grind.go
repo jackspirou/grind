@@ -11,14 +11,13 @@ import (
 	"go/ast"
 	"go/build"
 	"go/format"
+	"go/importer"
 	"go/parser"
 	"go/token"
 	"go/types"
 	"io/ioutil"
 	"path/filepath"
 	"strings"
-
-	_ "golang.org/x/tools/go/gcimporter15"
 )
 
 type Package struct {
@@ -153,7 +152,7 @@ Loop:
 			pkg.Files = append(pkg.Files, f)
 		}
 
-		conf := new(types.Config)
+		conf := &types.Config{Importer: importer.Default()}
 		// conf.DisableUnusedImportCheck = true
 		pkg.Info = types.Info{}
 		pkg.Info.Types = make(map[ast.Expr]types.TypeAndValue)

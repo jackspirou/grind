@@ -17,7 +17,6 @@ import (
 	"github.com/jackspirou/grind/gotoinline"
 	"github.com/jackspirou/grind/grinder"
 	"github.com/jackspirou/grind/vardecl"
-	_ "golang.org/x/tools/go/gcimporter15"
 )
 
 var diff = flag.Bool("diff", false, "print diffs")

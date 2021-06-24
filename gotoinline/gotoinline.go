@@ -42,6 +42,7 @@ func grindFunc(ctxt *grinder.Context, pkg *grinder.Package, edit *grinder.EditBu
 	}
 
 	if pkg.TypesError != nil {
+		fmt.Println("pkg.TypesError:", pkg.TypesError)
 		// Without scoping information, we can't be sure code moves are okay.
 		fmt.Printf("%s: cannot inline gotos without type information\n", fn.Name)
 		return
